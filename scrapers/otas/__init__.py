@@ -1,1 +1,0 @@
-# scrapers/otas package

@@ -1,53 +1,9 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# Ignore everything in repository except PPT 2 files
+/*
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual Environments
-.venv/
-venv/
-env/
-ENV/
-
-# Environment Variables & Secrets
-.env
-.env.local
-.env.*.local
-
-# Database SQLite files & caches
-*.db
-*.sqlite3
-database/cache/
-
-# Temporary scratch dumps, raw network intercepts & test scripts
-scratch/
-
-# IDE / Editor configs
-.vscode/
-.idea/
-.obsidian/
-
-# Operating System files
-.DS_Store
-Thumbs.db
+# Allow only PPT 2 files and documentation
+!/index.html
+!/PPT_02.html
+!/PPT_02.pptx
+!/README.md
+!/.gitignore

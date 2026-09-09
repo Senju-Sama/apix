@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Operation APIx — SIH 2026</title>
+  <title>Operation APIx — Problem Statement & Transition (PPT 02)</title>
   
   <!-- Google Fonts: Poppins (Headings) + Lora (Editorial Body) + JetBrains Mono (Data) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,10 +64,16 @@
   <!-- TOP MINIMAL HEADER -->
   <header class="w-full px-8 py-5 flex items-center justify-between border-b border-claude-border/50 bg-claude-dark/80 backdrop-blur-md sticky top-0 z-50">
     <div class="flex items-center gap-3">
-      <span class="w-2.5 h-2.5 rounded-full bg-claude-coral"></span>
-      <span class="font-heading font-semibold text-xs tracking-widest uppercase text-claude-light">Operation APIx</span>
+      <span class="w-2.5 h-2.5 rounded-full bg-claude-coral animate-pulse"></span>
+      <span class="font-heading font-semibold text-xs tracking-widest uppercase text-claude-light">Operation APIx • PPT 02</span>
       <span class="text-claude-gray/40 text-xs">•</span>
       <span class="text-xs text-claude-gray font-mono hidden md:inline">SIH 2026 • PS #SIH26056</span>
+      <div class="hidden sm:flex items-center gap-2 ml-3">
+        <a href="PPT_02.pptx" download class="px-2.5 py-1 rounded text-[11px] font-mono border border-claude-coral/40 text-claude-coral hover:bg-claude-coral hover:text-claude-dark transition flex items-center gap-1">
+          <span>Download .PPTX</span>
+          <span>↓</span>
+        </a>
+      </div>
     </div>
 
     <!-- Progress & Slide Tracker -->
@@ -75,7 +81,7 @@
       <div class="flex items-center gap-1.5 text-xs font-mono">
         <span id="slideCounter" class="text-claude-coral font-bold text-sm">01</span>
         <span class="text-claude-gray/50">/</span>
-        <span class="text-claude-gray text-xs">13</span>
+        <span class="text-claude-gray text-xs">06</span>
       </div>
 
       <!-- Presenter Mode Key -->
@@ -92,36 +98,44 @@
     </div>
   </header>
 
-  <!-- PROGRESS LINE -->
+  <!-- PROGRESS LINE (6 Slides) -->
   <div class="w-full bg-claude-border/30 h-0.5">
-    <div id="progressBar" class="bg-claude-coral h-0.5 transition-all duration-300 ease-out" style="width: 7.69%;"></div>
+    <div id="progressBar" class="bg-claude-coral h-0.5 transition-all duration-300 ease-out" style="width: 16.66%;"></div>
   </div>
 
   <!-- MAIN SLIDE VIEWPORT (Generous negative space, uncluttered) -->
   <main class="flex-1 max-w-4xl w-full mx-auto px-8 py-12 flex flex-col justify-center">
 
     <!-- ========================================================================= -->
-    <!-- SLIDE 01: TITLE & HERO -->
+    <!-- SLIDE 01: WHAT OUR PROBLEM STATEMENT IS ?? -->
     <!-- ========================================================================= -->
     <section id="slide-1" class="slide-pane flex flex-col gap-6">
       <div class="inline-flex items-center gap-2 text-xs font-mono text-claude-coral uppercase tracking-wider">
         <span>Smart India Hackathon 2026</span>
         <span>•</span>
         <span>MoSPI & RBI</span>
+        <span>•</span>
+        <span class="text-claude-gray">PS ID: SIH26056</span>
       </div>
       
-      <h1 class="text-5xl sm:text-6xl font-heading font-bold text-claude-light tracking-tight leading-[1.15]">
-        Operation APIx.
+      <h1 class="text-4xl sm:text-6xl font-heading font-bold text-claude-light tracking-tight leading-[1.15]">
+        What our Problem Statement is ??
       </h1>
 
-      <p class="text-2xl font-serif text-claude-gray leading-relaxed max-w-2xl">
-        Building India's Real-Time Airfare Price Index to replace a multi-billion rupee economic blind spot.
+      <p class="text-xl sm:text-2xl font-serif text-claude-gray leading-relaxed max-w-2xl">
+        <strong class="text-claude-light font-medium">Operation APIx:</strong> Building India's Real-Time Airfare Price Index to replace a multi-billion rupee national economic blind spot through automated web scraping.
       </p>
 
-      <div class="pt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-claude-gray">
-        <span class="border border-claude-border px-3 py-1.5 rounded-full">PS ID: SIH26056</span>
-        <span class="border border-claude-border px-3 py-1.5 rounded-full">Submissions: 0 / 500</span>
-        <span class="border border-claude-coral/30 text-claude-coral px-3 py-1.5 rounded-full">Team Match: 9.9 / 10</span>
+      <div class="pt-4 flex flex-wrap items-center gap-3 text-xs font-mono text-claude-gray">
+        <span class="border border-claude-coral/40 text-claude-coral px-3 py-1.5 rounded-full bg-claude-coral/10">Theme: Smart Automation</span>
+        <span class="border border-claude-border px-3 py-1.5 rounded-full bg-claude-surface">Ministry: MoSPI & NSO</span>
+        <span class="border border-claude-border px-3 py-1.5 rounded-full bg-claude-surface">Beneficiary: RBI MPC</span>
+        <span class="border border-claude-border px-3 py-1.5 rounded-full bg-claude-surface">Category: Software</span>
+      </div>
+
+      <div class="mt-2 p-4 rounded-xl bg-claude-surface/60 border border-claude-border flex items-center justify-between text-xs font-mono text-claude-gray">
+        <span>Slide 1 of 6 • Problem Framing</span>
+        <span class="text-claude-coral">Press Space or ➔ to begin</span>
       </div>
     </section>
 
@@ -246,277 +260,68 @@
     </section>
 
     <!-- ========================================================================= -->
-    <!-- SLIDE 06: OUR UNFAIR ADVANTAGE -->
+    <!-- SLIDE 06: LET'S MOVE TO SOLN. -->
     <!-- ========================================================================= -->
     <section id="slide-6" class="slide-pane hidden flex flex-col gap-6">
-      <span class="text-xs font-mono text-claude-coral uppercase tracking-wider">Strategic Advantage</span>
-
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
-        Why This is Our Winning Opportunity
-      </h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-2 text-center">
-        <div class="p-6 rounded-xl bg-claude-surface border border-claude-border">
-          <div class="text-4xl font-heading font-bold text-claude-coral mb-1 font-mono">0</div>
-          <div class="text-xs font-mono uppercase text-claude-gray">Competing Submissions</div>
-        </div>
-        <div class="p-6 rounded-xl bg-claude-surface border border-claude-border">
-          <div class="text-4xl font-heading font-bold text-claude-blue mb-1 font-mono">9.9<span class="text-sm font-normal text-claude-gray">/10</span></div>
-          <div class="text-xs font-mono uppercase text-claude-gray">Our Team Fit Score</div>
-        </div>
-        <div class="p-6 rounded-xl bg-claude-surface border border-claude-border">
-          <div class="text-4xl font-heading font-bold text-claude-green mb-1 font-mono">9.3<span class="text-sm font-normal text-claude-gray">/10</span></div>
-          <div class="text-xs font-mono uppercase text-claude-gray">AI Assistance Speed</div>
-        </div>
+      <div class="inline-flex items-center gap-2 text-xs font-mono text-claude-coral uppercase tracking-wider">
+        <span>Strategic Pivot</span>
+        <span>•</span>
+        <span>From Problem to Engineering</span>
       </div>
 
-      <p class="text-base text-claude-gray leading-relaxed">
-        While other teams fight over crowded, generic chatbot or hospital management statements, this problem statement has <strong class="text-claude-coral">zero competition</strong> and matches our web scraping + React + UI/UX strengths 100%.
-      </p>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SLIDE 07: THE SOLUTION (THREE PILLARS) -->
-    <!-- ========================================================================= -->
-    <section id="slide-7" class="slide-pane hidden flex flex-col gap-6">
-      <span class="text-xs font-mono text-claude-coral uppercase tracking-wider">The Engineering Solution</span>
-
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
-        Operation APIx in Three Simple Pillars
+      <h2 class="text-4xl sm:text-6xl font-heading font-bold text-claude-light tracking-tight">
+        Let's Move to Soln.
       </h2>
 
+      <p class="text-xl font-serif text-claude-gray leading-relaxed max-w-2xl">
+        We have proven the problem: physical clipboards cannot measure algorithmic airfares. Here is how <strong class="text-claude-coral font-medium">Operation APIx</strong> solves it with a 3-pillar engineering architecture:
+      </p>
+
+      <!-- 3 Pillar Previews -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-2">
-        <div class="p-5 rounded-xl bg-claude-surface border border-claude-border flex flex-col justify-between">
+        <div class="p-5 rounded-xl bg-claude-surface border border-claude-coral/40 flex flex-col justify-between hover:border-claude-coral transition">
           <div>
-            <div class="text-xs font-mono text-claude-coral mb-2">01 • INGEST</div>
-            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">Automated Scraping</h3>
+            <div class="text-xs font-mono text-claude-coral mb-2">PILLAR 01 • INGESTION</div>
+            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">Automated Scraping Engine</h3>
             <p class="text-xs text-claude-gray leading-relaxed">
-              Stealth Playwright + OTA API bridges track the Top 15 DGCA city-pairs across 5 advance purchase windows (T+1, T+7, T+15, T+30, T+45).
+              Stealth Playwright + internal OTA API ingestion tracking 15 high-density routes across 5 booking horizons (T+1 to T+45).
             </p>
           </div>
+          <div class="mt-4 text-[11px] font-mono text-claude-coral">11 Direct Targets & OTAs ➔</div>
         </div>
 
-        <div class="p-5 rounded-xl bg-claude-surface border border-claude-border flex flex-col justify-between">
+        <div class="p-5 rounded-xl bg-claude-surface border border-claude-blue/40 flex flex-col justify-between hover:border-claude-blue transition">
           <div>
-            <div class="text-xs font-mono text-claude-blue mb-2">02 • COMPUTE</div>
-            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">Unbundle & Index</h3>
+            <div class="text-xs font-mono text-claude-blue mb-2">PILLAR 02 • ECONOMETRICS</div>
+            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">Laspeyres Price Engine</h3>
             <p class="text-xs text-claude-gray leading-relaxed">
-              Separates pure Base Fare from taxes/UDF, removes statistical outliers (IQR), and calculates the weighted Laspeyres Index.
+              Separates pure Base Fare from taxes, trims statistical outliers (IQR), and calculates official MoSPI Base 2024=100 index weighted by DGCA passenger loads.
             </p>
           </div>
+          <div class="mt-4 text-[11px] font-mono text-claude-blue">IMF-Grade Econometric Formula ➔</div>
         </div>
 
-        <div class="p-5 rounded-xl bg-claude-surface border border-claude-border flex flex-col justify-between">
+        <div class="p-5 rounded-xl bg-claude-surface border border-claude-green/40 flex flex-col justify-between hover:border-claude-green transition">
           <div>
-            <div class="text-xs font-mono text-claude-green mb-2">03 • DELIVER</div>
-            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">Command Center</h3>
+            <div class="text-xs font-mono text-claude-green mb-2">PILLAR 03 • DECISION INTELLIGENCE</div>
+            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">MoSPI & RBI Command Center</h3>
             <p class="text-xs text-claude-gray leading-relaxed">
-              A high-polish dashboard with real-time inflation gauges, interactive flight corridor maps, and automated REST APIs for the RBI.
+              High-polish dashboard with real-time inflation dials, interactive domestic corridor maps, anomaly alerts, and automated REST APIs for the RBI MPC.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SLIDE 08: DEMYSTIFYING ANTI-BOT (THE CHROME SECRET) -->
-    <!-- ========================================================================= -->
-    <section id="slide-8" class="slide-pane hidden flex flex-col gap-6">
-      <span class="text-xs font-mono text-claude-coral uppercase tracking-wider">Engineering Secret</span>
-
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
-        No Complex Hacking: The Chrome Network Secret
-      </h2>
-
-      <p class="text-claude-gray text-base leading-relaxed">
-        We don't need to break into airline servers or battle complex captchas. OTAs like EaseMyTrip and Yatra deliver flight results via clean internal AJAX calls (<code class="font-mono text-claude-coral text-sm">Fetch/XHR</code>).
-      </p>
-
-      <div class="p-5 rounded-xl bg-claude-surface border border-claude-border font-mono text-xs text-claude-light space-y-2">
-        <div class="flex items-center justify-between text-claude-gray text-[11px] pb-2 border-b border-claude-border">
-          <span>Chrome DevTools ➔ Network ➔ Fetch/XHR</span>
-          <span class="text-claude-green">HTTP 200 OK (JSON)</span>
-        </div>
-        <div class="text-claude-coral leading-relaxed pt-1">
-          { "carrier": "IndiGo", "flight": "6E-204", "route": "DEL-BOM",<br>
-          &nbsp;&nbsp;"base_fare": 4200.00, "taxes": 850.00, "total": 5050.00 }
+          <div class="mt-4 text-[11px] font-mono text-claude-green">Automated Macroeconomic Feeds ➔</div>
         </div>
       </div>
 
-      <p class="text-xs font-mono text-claude-gray">
-        Combined with Python <code class="text-claude-coral">playwright-stealth</code> and a 30-day pre-scraped database cache, our demo is 100% immune to network lag during judging.
-      </p>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SLIDE 09: THE MATHEMATICAL ENGINE -->
-    <!-- ========================================================================= -->
-    <section id="slide-9" class="slide-pane hidden flex flex-col gap-6">
-      <span class="text-xs font-mono text-claude-blue uppercase tracking-wider">Statistical Formula</span>
-
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
-        The Laspeyres Index (Made Simple)
-      </h2>
-
-      <p class="text-claude-gray text-base leading-relaxed">
-        We use the globally standard formula recommended by the International Monetary Fund (IMF) and the UN Statistics Division:
-      </p>
-
-      <div class="p-6 rounded-xl bg-claude-surface border border-claude-coral/40 text-center font-mono text-xl sm:text-2xl text-claude-coral tracking-wider font-bold my-2">
-        APIx_t = Σ [ (Price_i,t / Price_i,0) × Weight_i ] × 100
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-claude-gray">
-        <div class="p-3 bg-claude-dark rounded border border-claude-border">
-          <strong class="text-claude-light">Price_i,t / Price_i,0:</strong> Current average price of Route i divided by its base-period price.
+      <!-- Action Callout -->
+      <div class="p-4 rounded-xl bg-gradient-to-r from-claude-coral/10 via-claude-surface to-claude-surface border border-claude-coral/30 flex items-center justify-between">
+        <div class="text-xs font-mono text-claude-light">
+          <span class="text-claude-coral font-bold mr-2">OFFICIAL DECK:</span>
+          <span>Download Editable Microsoft PowerPoint Presentation (.pptx)</span>
         </div>
-        <div class="p-3 bg-claude-dark rounded border border-claude-border">
-          <strong class="text-claude-light">Weight_i:</strong> Route passenger share from official DGCA traffic reports (e.g. DEL-BOM = 14.2%).
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SLIDE 10: OUR SQUAD (THE AVENGERS) -->
-    <!-- ========================================================================= -->
-    <section id="slide-10" class="slide-pane hidden flex flex-col gap-6">
-      <span class="text-xs font-mono text-claude-coral uppercase tracking-wider">Team Alignment</span>
-
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
-        Our Team Superpowers
-      </h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2">
-        <div class="p-4 rounded-xl bg-claude-surface border border-claude-coral/30">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="font-heading font-bold text-claude-light text-base">Lead (You)</h3>
-            <span class="text-[10px] font-mono text-claude-coral uppercase">Scraping & AI Engine</span>
-          </div>
-          <p class="text-xs text-claude-gray">Stealth Playwright scraper, OTA API bridges, Laspeyres index math, cloud deployment.</p>
-        </div>
-
-        <div class="p-4 rounded-xl bg-claude-surface border border-claude-blue/30">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="font-heading font-bold text-claude-light text-base">Sukesh</h3>
-            <span class="text-[10px] font-mono text-claude-blue uppercase">React & Backend Lead</span>
-          </div>
-          <p class="text-xs text-claude-gray">Full-stack React architecture, PostgreSQL/SQLite schema, FastAPI REST endpoints for the RBI.</p>
-        </div>
-
-        <div class="p-4 rounded-xl bg-claude-surface border border-claude-green/30">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="font-heading font-bold text-claude-light text-base">Shivam</h3>
-            <span class="text-[10px] font-mono text-claude-green uppercase">UI/UX Craft</span>
-          </div>
-          <p class="text-xs text-claude-gray">MoSPI Command Center UI (Figma), glowing India flight corridor maps, micro-interactions.</p>
-        </div>
-
-        <div class="p-4 rounded-xl bg-claude-surface border border-claude-border">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="font-heading font-bold text-claude-light text-base">Yash</h3>
-            <span class="text-[10px] font-mono text-claude-light uppercase">Pitch & Coordination</span>
-          </div>
-          <p class="text-xs text-claude-gray">Sprint timeline, the 5-minute winning presentation deck, live demo choreography, Q&A defense.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SLIDE 11: RECRUITMENT (THE 2 OPEN SLOTS) -->
-    <!-- ========================================================================= -->
-    <section id="slide-11" class="slide-pane hidden flex flex-col gap-6">
-      <span class="text-xs font-mono text-claude-blue uppercase tracking-wider">Completing the Squad</span>
-
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
-        Who We Need for the 2 Open Slots
-      </h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2">
-        <div class="p-6 rounded-xl bg-claude-surface border border-claude-border">
-          <span class="text-xs font-mono text-claude-coral uppercase block mb-1">Open Slot 05</span>
-          <h3 class="font-heading font-semibold text-claude-light text-lg mb-2">Python Data / Testing Analyst</h3>
-          <p class="text-xs text-claude-gray leading-relaxed">
-            Curate DGCA historical passenger datasets, backtest our index against 30-day DGCA reports, and write data validation tests.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-xl bg-claude-surface border border-claude-border">
-          <span class="text-xs font-mono text-claude-green uppercase block mb-1">Open Slot 06</span>
-          <h3 class="font-heading font-semibold text-claude-light text-lg mb-2">Domain Researcher / Co-Speaker</h3>
-          <p class="text-xs text-claude-gray leading-relaxed">
-            Study MoSPI CPI guidelines and aviation unbundling rules to assist Yash in answering tough judge questions during Q&A.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SLIDE 12: THE STUDY SYLLABUS -->
-    <!-- ========================================================================= -->
-    <section id="slide-12" class="slide-pane hidden flex flex-col gap-6">
-      <span class="text-xs font-mono text-claude-green uppercase tracking-wider">Knowledge Base</span>
-
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
-        What We Need to Study (All Resources Ready)
-      </h2>
-
-      <div class="space-y-3 my-2 text-xs font-mono">
-        <div class="p-3.5 bg-claude-surface rounded-lg border border-claude-border flex items-center justify-between">
-          <span>1. MoSPI CPI Guidelines (Base 2024=100)</span>
-          <a href="https://mospi.gov.in" target="_blank" class="text-claude-coral hover:underline">mospi.gov.in ↗</a>
-        </div>
-        <div class="p-3.5 bg-claude-surface rounded-lg border border-claude-border flex items-center justify-between">
-          <span>2. DGCA Domestic Air Passenger Traffic Reports</span>
-          <a href="https://www.dgca.gov.in" target="_blank" class="text-claude-blue hover:underline">dgca.gov.in ↗</a>
-        </div>
-        <div class="p-3.5 bg-claude-surface rounded-lg border border-claude-border flex items-center justify-between">
-          <span>3. IMF Consumer Price Index Manual (Theory & Practice)</span>
-          <a href="https://www.imf.org/en/Publications/Manuals-Guides/Issues/2020/11/23/Consumer-Price-Index-Manual-49887" target="_blank" class="text-claude-green hover:underline">imf.org ↗</a>
-        </div>
-        <div class="p-3.5 bg-claude-surface rounded-lg border border-claude-border flex items-center justify-between">
-          <span>4. Playwright Python Stealth Documentation</span>
-          <a href="https://playwright.dev/python/docs/intro" target="_blank" class="text-claude-coral hover:underline">playwright.dev ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SLIDE 13: THE ROADMAP & WIN CONDITION -->
-    <!-- ========================================================================= -->
-    <section id="slide-13" class="slide-pane hidden flex flex-col gap-6">
-      <span class="text-xs font-mono text-claude-coral uppercase tracking-wider">The Roadmap</span>
-
-      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
-        4 Sprints to the SIH 2026 Trophy
-      </h2>
-
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-2 text-xs font-mono">
-        <div class="p-4 bg-claude-surface rounded-xl border border-claude-border">
-          <div class="text-claude-coral font-bold mb-1">WEEK 01</div>
-          <div class="text-claude-light font-semibold mb-1">Data Discovery</div>
-          <div class="text-claude-gray text-[11px]">Inspect OTA calls, lock DGCA weights, create mock JSON.</div>
-        </div>
-        <div class="p-4 bg-claude-surface rounded-xl border border-claude-border">
-          <div class="text-claude-blue font-bold mb-1">WEEK 02</div>
-          <div class="text-claude-light font-semibold mb-1">Pipeline & DB</div>
-          <div class="text-claude-gray text-[11px]">Build PostgreSQL schema, FastAPI backend, scraper engine.</div>
-        </div>
-        <div class="p-4 bg-claude-surface rounded-xl border border-claude-border">
-          <div class="text-claude-green font-bold mb-1">WEEK 03</div>
-          <div class="text-claude-light font-semibold mb-1">Command Center</div>
-          <div class="text-claude-gray text-[11px]">Shivam & Sukesh build React UI, glowing India flight maps.</div>
-        </div>
-        <div class="p-4 bg-claude-surface rounded-xl border border-claude-border">
-          <div class="text-claude-coral font-bold mb-1">WEEK 04</div>
-          <div class="text-claude-light font-semibold mb-1">Pitch & Rehearse</div>
-          <div class="text-claude-gray text-[11px]">Yash leads live demo choreography and Q&A defense.</div>
-        </div>
-      </div>
-
-      <div class="pt-4 text-center">
-        <p class="text-xl font-serif italic text-claude-coral">
-          “Zero competing teams. Unmatched team fit. Let’s build Operation APIx.”
-        </p>
+        <a href="PPT_02.pptx" download class="text-xs font-mono px-3 py-1.5 rounded bg-claude-coral text-claude-dark font-bold hover:bg-claude-coralHover transition flex items-center gap-1">
+          Download PPT_02.pptx ➔
+        </a>
       </div>
     </section>
 
@@ -555,7 +360,7 @@
             <span class="font-heading font-semibold text-xs uppercase text-claude-coral tracking-wider">Speaker Talking Points:</span>
           </div>
           <p id="speakerNoteText" class="text-xs text-claude-light leading-relaxed font-mono">
-            “Team, we are not here to build another flight booking website...”
+            “Judges, today we present What our Problem Statement is...”
           </p>
         </div>
         <div class="text-right font-mono border-l border-claude-border pl-4">
@@ -567,28 +372,21 @@
     </div>
   </footer>
 
-  <!-- SCRIPT: MINIMALIST INTERACTIVE NAVIGATION -->
+  <!-- SCRIPT: MINIMALIST INTERACTIVE NAVIGATION (6 SLIDES) -->
   <script>
     let currentSlide = 1;
-    const totalSlides = 13;
+    const totalSlides = 6;
     let presenterMode = false;
     let timerSeconds = 0;
     let timerInterval = null;
 
     const speakerNotes = {
-      1: "SLIDE 1 (TITLE): 'Team, we are not building another flight search app. We are solving an official macroeconomic blind spot for the Reserve Bank of India and MoSPI.'",
+      1: "SLIDE 1 (WHAT OUR PROBLEM STATEMENT IS): 'Judges, today we clarify What our Problem Statement is: how India tracks domestic airfare inflation under MoSPI, and why the current methodology creates a multi-billion rupee blind spot for the Reserve Bank of India.'",
       2: "SLIDE 2 (THE HOOK): 'Did you know the government collects flight inflation by walking into an office once a month with paper? Over 92% of tickets are online.'",
       3: "SLIDE 3 (THE CONTRAST): 'Drag this slider. Notice how a ₹4,500 counter fare jumps to ₹16,800 on a festival weekend. The government data completely misses this.'",
-      4: "SLIDE 4 (THE CONSEQUENCE): 'Why does this matter? The RBI sets India's interest rates based on CPI. When airfare data is blind, national interest rate policy is distorted.'",
+      4: "SLIDE 4 (THE CONSEQUENCE): 'Why does this matter? The RBI sets India\'s interest rates based on CPI. When airfare data is blind, national interest rate policy is distorted.'",
       5: "SLIDE 5 (THE MANDATE): 'MoSPI officially mandated shifting to digital web scraping under CPI Base 2024=100. They posted SIH26056 because they need this software.'",
-      6: "SLIDE 6 (THE ADVANTAGE): 'Look at the numbers: ZERO other teams have submitted on this problem statement. We have an open runway.'",
-      7: "SLIDE 7 (THREE PILLARS): 'Three simple layers: Ingest daily quotes, unbundle taxes and calculate the Laspeyres index, and serve it via an executive dashboard.'",
-      8: "SLIDE 8 (ANTI-BOT): 'Sukesh, Yash, don't worry about captchas. Chrome DevTools reveals clean JSON payloads from OTAs. No DOM parsing or hacking required.'",
-      9: "SLIDE 9 (THE FORMULA): 'We use the official IMF Laspeyres Price Index formula. We weight routes by actual DGCA passenger counts. Highly credible for judges.'",
-      10: "SLIDE 10 (THE SQUAD): 'Lead handles scraping and AI pipeline; Sukesh leads React & backend APIs; Shivam crafts the UI/UX; Yash runs timeline and pitch storytelling.'",
-      11: "SLIDE 11 (RECRUITING): 'We have 2 open slots: Slot 5 for a Python data analyst, and Slot 6 for an aviation economics co-presenter.'",
-      12: "SLIDE 12 (STUDY SYLLABUS): 'We don't need to guess. MoSPI CPI guidelines, DGCA monthly traffic reports, and IMF manuals are all ready for us.'",
-      13: "SLIDE 13 (ROADMAP): '4 simple weekly sprints: Discovery -> Pipeline -> Command Center -> Pitch Rehearsal. Let's start week 1 today!'"
+      6: "SLIDE 6 (LET\'S MOVE TO SOLN.): 'Now that the problem and official mandate are crystal clear: Let\'s Move to Soln. We present the 3 engineering pillars of Operation APIx: Automated Ingestion, Laspeyres Econometrics, and the Sovereign MoSPI & RBI Command Center.'"
     };
 
     function updateSlide() {
@@ -656,7 +454,7 @@
         } else {
           document.exitFullscreen().catch(() => {});
         }
-      } else if (!isNaN(e.key) && parseInt(e.key) >= 1 && parseInt(e.key) <= 9) {
+      } else if (!isNaN(e.key) && parseInt(e.key) >= 1 && parseInt(e.key) <= totalSlides) {
         currentSlide = parseInt(e.key);
         updateSlide();
       }
