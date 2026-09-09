@@ -1,0 +1,32 @@
+[
+  {
+    "window_id": "T+1",
+    "days_ahead": 1,
+    "label": "Last-Minute / Emergency Surge",
+    "description": "Measures emergency, corporate, and dynamic peak pricing."
+  },
+  {
+    "window_id": "T+7",
+    "days_ahead": 7,
+    "label": "Short-Notice Travel",
+    "description": "Measures corporate and short-notice domestic booking volatility."
+  },
+  {
+    "window_id": "T+15",
+    "days_ahead": 15,
+    "label": "Mid-Range Booking Window",
+    "description": "Intermediate booking window where retail volume accelerates."
+  },
+  {
+    "window_id": "T+30",
+    "days_ahead": 30,
+    "label": "Standard Advance Planning",
+    "description": "Standard consumer advance booking anchor point."
+  },
+  {
+    "window_id": "T+45",
+    "days_ahead": 45,
+    "label": "Early-Bird Leisure Baseline",
+    "description": "Baseline fare bucket pricing before seat inventory is depleted."
+  }
+]

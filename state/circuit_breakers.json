@@ -1,0 +1,13 @@
+{
+  "easemytrip": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "ixigo": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "makemytrip": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "yatra": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "cleartrip": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "goibibo": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "indigo": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "airindia": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "airindia_express": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "akasa": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null },
+  "spicejet": { "status": "CLOSED", "consecutive_failures": 0, "last_failure_time": null, "cooldown_until": null }
+}

@@ -1,0 +1,69 @@
+{
+  "system_status": "HEALTHY",
+  "last_run_timestamp": null,
+  "total_quotes_collected": 0,
+  "last_computed_apix": null,
+  "route_coverage": {
+    "DEL-BOM": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "DEL-BLR": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "BOM-BLR": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "DEL-CCU": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "BLR-HYD": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "MAA-DEL": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "DEL-HYD": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "BOM-GOI": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "DEL-PNQ": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "BOM-CCU": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "DEL-GAU": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    },
+    "DEL-SXR": {
+      "status": "PENDING",
+      "quotes_count": 0,
+      "last_updated": null
+    }
+  },
+  "last_audit_timestamp": "2026-09-09T13:58:20.912844"
+}

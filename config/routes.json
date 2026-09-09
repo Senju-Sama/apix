@@ -1,0 +1,122 @@
+[
+  {
+    "route_id": "DEL-BOM",
+    "origin_iata": "DEL",
+    "origin_city": "Delhi",
+    "destination_iata": "BOM",
+    "destination_city": "Mumbai",
+    "classification": "Heavy Metro Trunk",
+    "weight": 0.142,
+    "ps_mandated": true
+  },
+  {
+    "route_id": "DEL-BLR",
+    "origin_iata": "DEL",
+    "origin_city": "Delhi",
+    "destination_iata": "BLR",
+    "destination_city": "Bengaluru",
+    "classification": "Heavy Metro Trunk",
+    "weight": 0.098,
+    "ps_mandated": true
+  },
+  {
+    "route_id": "BOM-BLR",
+    "origin_iata": "BOM",
+    "origin_city": "Mumbai",
+    "destination_iata": "BLR",
+    "destination_city": "Bengaluru",
+    "classification": "Metro High-Density",
+    "weight": 0.065,
+    "ps_mandated": true
+  },
+  {
+    "route_id": "DEL-CCU",
+    "origin_iata": "DEL",
+    "origin_city": "Delhi",
+    "destination_iata": "CCU",
+    "destination_city": "Kolkata",
+    "classification": "Metro East Trunk",
+    "weight": 0.054,
+    "ps_mandated": true
+  },
+  {
+    "route_id": "BLR-HYD",
+    "origin_iata": "BLR",
+    "origin_city": "Bengaluru",
+    "destination_iata": "HYD",
+    "destination_city": "Hyderabad",
+    "classification": "Short-Haul Tech Hub",
+    "weight": 0.042,
+    "ps_mandated": true
+  },
+  {
+    "route_id": "MAA-DEL",
+    "origin_iata": "MAA",
+    "origin_city": "Chennai",
+    "destination_iata": "DEL",
+    "destination_city": "Delhi",
+    "classification": "North-South Trunk",
+    "weight": 0.038,
+    "ps_mandated": true
+  },
+  {
+    "route_id": "DEL-HYD",
+    "origin_iata": "DEL",
+    "origin_city": "Delhi",
+    "destination_iata": "HYD",
+    "destination_city": "Hyderabad",
+    "classification": "High-Density Metro Corridor",
+    "weight": 0.051,
+    "ps_mandated": false
+  },
+  {
+    "route_id": "BOM-GOI",
+    "origin_iata": "BOM",
+    "origin_city": "Mumbai",
+    "destination_iata": "GOI",
+    "destination_city": "Goa",
+    "classification": "High-Volatility Leisure",
+    "weight": 0.039,
+    "ps_mandated": false
+  },
+  {
+    "route_id": "DEL-PNQ",
+    "origin_iata": "DEL",
+    "origin_city": "Delhi",
+    "destination_iata": "PNQ",
+    "destination_city": "Pune",
+    "classification": "Tier-1 to Tier-2 Corporate Hub",
+    "weight": 0.028,
+    "ps_mandated": false
+  },
+  {
+    "route_id": "BOM-CCU",
+    "origin_iata": "BOM",
+    "origin_city": "Mumbai",
+    "destination_iata": "CCU",
+    "destination_city": "Kolkata",
+    "classification": "West-East Commercial Corridor",
+    "weight": 0.026,
+    "ps_mandated": false
+  },
+  {
+    "route_id": "DEL-GAU",
+    "origin_iata": "DEL",
+    "origin_city": "Delhi",
+    "destination_iata": "GAU",
+    "destination_city": "Guwahati",
+    "classification": "Northeast Regional Lifeline",
+    "weight": 0.021,
+    "ps_mandated": false
+  },
+  {
+    "route_id": "DEL-SXR",
+    "origin_iata": "DEL",
+    "origin_city": "Delhi",
+    "destination_iata": "SXR",
+    "destination_city": "Srinagar",
+    "classification": "Seasonal Tourist Corridor",
+    "weight": 0.018,
+    "ps_mandated": false
+  }
+]

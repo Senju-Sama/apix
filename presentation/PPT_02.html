@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operation APIx — Problem Statement & Transition (PPT 02)</title>
+  
+  <!-- Google Fonts: Poppins (Headings) + Lora (Editorial Body) + JetBrains Mono (Data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            claude: {
+              dark: '#141413',        // Anthropic Charcoal
+              surface: '#1c1c19',     // Card Surface
+              border: '#2a2a26',      // Hairline Border
+              light: '#faf9f5',       // Ivory / Alabaster
+              gray: '#8e8c85',        // Minimal Muted Gray
+              coral: '#d97757',       // Signature Claude Terracotta
+              coralHover: '#c86646',
+              blue: '#6a9bcc',        // Muted Blue
+              green: '#788c5d',       // Sage Green
+            }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            serif: ['Lora', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Lora', Georgia, serif;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Minimal custom scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #2a2a26; border-radius: 4px; }
+  </style>
+</head>
+
+<body class="bg-claude-dark text-claude-light min-h-screen flex flex-col justify-between select-none antialiased overflow-x-hidden">
+
+  <!-- TOP MINIMAL HEADER -->
+  <header class="w-full px-8 py-5 flex items-center justify-between border-b border-claude-border/50 bg-claude-dark/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="flex items-center gap-3">
+      <span class="w-2.5 h-2.5 rounded-full bg-claude-coral animate-pulse"></span>
+      <span class="font-heading font-semibold text-xs tracking-widest uppercase text-claude-light">Operation APIx • PPT 02</span>
+      <span class="text-claude-gray/40 text-xs">•</span>
+      <span class="text-xs text-claude-gray font-mono hidden md:inline">SIH 2026 • PS #SIH26056</span>
+      <div class="hidden lg:flex items-center gap-2 ml-3">
+        <a href="PPT_01.html" class="px-2 py-0.5 rounded text-[10px] font-mono border border-claude-border text-claude-gray hover:text-claude-light hover:border-claude-coral transition">PPT 01 Deck</a>
+        <a href="architecture.html" class="px-2 py-0.5 rounded text-[10px] font-mono border border-claude-border text-claude-gray hover:text-claude-light hover:border-claude-blue transition">Architecture</a>
+        <a href="PPT_02.pptx" download class="px-2 py-0.5 rounded text-[10px] font-mono border border-claude-border text-claude-gray hover:text-claude-light hover:border-claude-green transition">Download .PPTX</a>
+      </div>
+    </div>
+
+    <!-- Progress & Slide Tracker -->
+    <div class="flex items-center gap-5">
+      <div class="flex items-center gap-1.5 text-xs font-mono">
+        <span id="slideCounter" class="text-claude-coral font-bold text-sm">01</span>
+        <span class="text-claude-gray/50">/</span>
+        <span class="text-claude-gray text-xs">06</span>
+      </div>
+
+      <!-- Presenter Mode Key -->
+      <button onclick="togglePresenterMode()" class="px-2.5 py-1 rounded text-[11px] font-mono border border-claude-border text-claude-gray hover:text-claude-light hover:border-claude-coral transition" title="Press 'P' for Presenter Notes">
+        Notes [P]
+      </button>
+
+      <!-- Theme Switcher -->
+      <button onclick="toggleTheme()" class="text-claude-gray hover:text-claude-light transition" title="Toggle Light/Dark Theme">
+        <svg id="themeIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- PROGRESS LINE (6 Slides) -->
+  <div class="w-full bg-claude-border/30 h-0.5">
+    <div id="progressBar" class="bg-claude-coral h-0.5 transition-all duration-300 ease-out" style="width: 16.66%;"></div>
+  </div>
+
+  <!-- MAIN SLIDE VIEWPORT (Generous negative space, uncluttered) -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-8 py-12 flex flex-col justify-center">
+
+    <!-- ========================================================================= -->
+    <!-- SLIDE 01: WHAT OUR PROBLEM STATEMENT IS ?? -->
+    <!-- ========================================================================= -->
+    <section id="slide-1" class="slide-pane flex flex-col gap-6">
+      <div class="inline-flex items-center gap-2 text-xs font-mono text-claude-coral uppercase tracking-wider">
+        <span>Smart India Hackathon 2026</span>
+        <span>•</span>
+        <span>MoSPI & RBI</span>
+        <span>•</span>
+        <span class="text-claude-gray">PS ID: SIH26056</span>
+      </div>
+      
+      <h1 class="text-4xl sm:text-6xl font-heading font-bold text-claude-light tracking-tight leading-[1.15]">
+        What our Problem Statement is ??
+      </h1>
+
+      <p class="text-xl sm:text-2xl font-serif text-claude-gray leading-relaxed max-w-2xl">
+        <strong class="text-claude-light font-medium">Operation APIx:</strong> Building India's Real-Time Airfare Price Index to replace a multi-billion rupee national economic blind spot through automated web scraping.
+      </p>
+
+      <div class="pt-4 flex flex-wrap items-center gap-3 text-xs font-mono text-claude-gray">
+        <span class="border border-claude-coral/40 text-claude-coral px-3 py-1.5 rounded-full bg-claude-coral/10">Theme: Smart Automation</span>
+        <span class="border border-claude-border px-3 py-1.5 rounded-full bg-claude-surface">Ministry: MoSPI & NSO</span>
+        <span class="border border-claude-border px-3 py-1.5 rounded-full bg-claude-surface">Beneficiary: RBI MPC</span>
+        <span class="border border-claude-border px-3 py-1.5 rounded-full bg-claude-surface">Category: Software</span>
+      </div>
+
+      <div class="mt-2 p-4 rounded-xl bg-claude-surface/60 border border-claude-border flex items-center justify-between text-xs font-mono text-claude-gray">
+        <span>Slide 1 of 6 • Problem Framing</span>
+        <span class="text-claude-coral">Press Space or ➔ to begin</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SLIDE 02: THE HOOK (THE QUESTION) -->
+    <!-- ========================================================================= -->
+    <section id="slide-2" class="slide-pane hidden flex flex-col gap-6">
+      <span class="text-xs font-mono text-claude-coral uppercase tracking-wider">The Reality Check</span>
+      
+      <h2 class="text-3xl sm:text-4xl font-heading font-medium text-claude-light leading-snug">
+        How does the Government of India measure flight ticket inflation in 2026?
+      </h2>
+
+      <div class="my-6 pl-6 border-l-2 border-claude-coral/80 py-2">
+        <p class="text-2xl sm:text-3xl font-serif text-claude-coral italic leading-relaxed">
+          “A government surveyor walks into a physical airline booking office with a paper clipboard. Once a month.”
+        </p>
+      </div>
+
+      <p class="text-base text-claude-gray leading-relaxed max-w-2xl">
+        They record a single static counter price on paper. Meanwhile, more than 92% of domestic flight tickets are purchased online where algorithmic dynamic pricing swings 200% to 400% every single day.
+      </p>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SLIDE 03: THE CONTRAST (INTERACTIVE PRICE SLIDER) -->
+    <!-- ========================================================================= -->
+    <section id="slide-3" class="slide-pane hidden flex flex-col gap-6">
+      <span class="text-xs font-mono text-claude-coral uppercase tracking-wider">The Price Disconnect</span>
+
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
+        What MoSPI Sees vs. What Citizens Actually Pay
+      </h2>
+
+      <!-- Two Clear Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-4">
+        <div class="border border-claude-border rounded-xl p-6 bg-claude-surface/50">
+          <div class="text-xs font-mono text-claude-gray uppercase mb-3">The Monthly Paper Survey</div>
+          <div class="text-4xl font-heading font-bold text-claude-light mb-1">₹4,500</div>
+          <p class="text-xs text-claude-gray mt-2">Static counter fare recorded once a month in New Delhi. Zero visibility into advance windows.</p>
+        </div>
+
+        <div class="border border-claude-coral/40 rounded-xl p-6 bg-claude-surface">
+          <div class="text-xs font-mono text-claude-coral uppercase mb-3">Live Algorithmic Online Market</div>
+          <div id="dynamicPriceDisplay" class="text-4xl font-heading font-bold text-claude-coral mb-1">₹16,800</div>
+          <div id="surgeBadge" class="text-xs font-mono text-claude-coral mt-2">+273% Festival Surge (T+1 Day)</div>
+        </div>
+      </div>
+
+      <!-- Minimal Slider -->
+      <div class="space-y-3 pt-2">
+        <div class="flex justify-between text-xs font-mono text-claude-gray">
+          <span>Booking Horizon: <strong id="leadTimeLabel" class="text-claude-coral">T+1 Day (Last Minute)</strong></span>
+          <span>Drag slider to test ➔</span>
+        </div>
+        <input type="range" id="surgeSlider" min="1" max="45" value="1" step="1" 
+               class="w-full h-1.5 bg-claude-border rounded-lg appearance-none cursor-pointer accent-claude-coral"
+               oninput="updateSliderDemo(this.value)">
+        <div class="flex justify-between text-[11px] font-mono text-claude-gray/70">
+          <span>T+1 (Tomorrow)</span>
+          <span>T+7</span>
+          <span>T+15</span>
+          <span>T+30</span>
+          <span>T+45 (Early)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SLIDE 04: THE CONSEQUENCE (WHY THIS MATTERS) -->
+    <!-- ========================================================================= -->
+    <section id="slide-4" class="slide-pane hidden flex flex-col gap-6">
+      <span class="text-xs font-mono text-claude-blue uppercase tracking-wider">The Macroeconomic Stakes</span>
+
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
+        The Reserve Bank of India is Setting Monetary Policy Blindfolded.
+      </h2>
+
+      <div class="space-y-4 my-2 text-claude-gray text-base leading-relaxed">
+        <p>
+          Under India's <strong class="text-claude-light">Flexible Inflation Targeting</strong> framework, the RBI Monetary Policy Committee is mandated to keep inflation at 4% (±2%).
+        </p>
+        <p>
+          When airfare inflation is underreported or lagged by weeks, the Transport Subgroup of the <strong class="text-claude-light">Consumer Price Index (CPI)</strong> becomes inaccurate—leading to delayed or mistaken interest rate decisions.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-lg bg-claude-surface border border-claude-border text-sm font-mono text-claude-light flex items-center gap-3">
+        <span class="text-claude-coral text-lg font-bold">!</span>
+        <span>The Problem isn't booking tickets. The Problem is National Macroeconomic Intelligence.</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SLIDE 05: THE GOVERNMENT MANDATE -->
+    <!-- ========================================================================= -->
+    <section id="slide-5" class="slide-pane hidden flex flex-col gap-6">
+      <span class="text-xs font-mono text-claude-green uppercase tracking-wider">The Official Mandate</span>
+
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold text-claude-light tracking-tight">
+        The Government Officially Asked For This.
+      </h2>
+
+      <p class="text-claude-gray text-base leading-relaxed">
+        Under the newly revised <strong class="text-claude-light">CPI Series (Base 2024=100)</strong>, MoSPI officially mandated shifting from manual surveyor visits to <strong class="text-claude-light">automated digital web scraping</strong> for services like airfares.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2 text-xs font-mono">
+        <div class="p-4 rounded-lg bg-claude-surface border border-claude-border">
+          <div class="text-claude-coral font-semibold uppercase mb-1">MoSPI & NSO</div>
+          <div class="text-claude-gray">Need an automated data pipeline to collect daily airfares without manual field work.</div>
+        </div>
+        <div class="p-4 rounded-lg bg-claude-surface border border-claude-border">
+          <div class="text-claude-green font-semibold uppercase mb-1">DGCA</div>
+          <div class="text-claude-gray">Provides the passenger traffic counts on domestic city pairs to weight each route accurately.</div>
+        </div>
+      </div>
+
+      <p class="text-sm font-serif italic text-claude-gray">
+        SIH26056 was posted directly by MoSPI because they lack an automated software platform to execute this mandate.
+      </p>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SLIDE 06: LET'S MOVE TO SOLN. -->
+    <!-- ========================================================================= -->
+    <section id="slide-6" class="slide-pane hidden flex flex-col gap-6">
+      <div class="inline-flex items-center gap-2 text-xs font-mono text-claude-coral uppercase tracking-wider">
+        <span>Strategic Pivot</span>
+        <span>•</span>
+        <span>From Problem to Engineering</span>
+      </div>
+
+      <h2 class="text-4xl sm:text-6xl font-heading font-bold text-claude-light tracking-tight">
+        Let's Move to Soln.
+      </h2>
+
+      <p class="text-xl font-serif text-claude-gray leading-relaxed max-w-2xl">
+        We have proven the problem: physical clipboards cannot measure algorithmic airfares. Here is how <strong class="text-claude-coral font-medium">Operation APIx</strong> solves it with a 3-pillar engineering architecture:
+      </p>
+
+      <!-- 3 Pillar Previews -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-2">
+        <div class="p-5 rounded-xl bg-claude-surface border border-claude-coral/40 flex flex-col justify-between hover:border-claude-coral transition">
+          <div>
+            <div class="text-xs font-mono text-claude-coral mb-2">PILLAR 01 • INGESTION</div>
+            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">Automated Scraping Engine</h3>
+            <p class="text-xs text-claude-gray leading-relaxed">
+              Stealth Playwright + internal OTA API ingestion tracking 15 high-density routes across 5 booking horizons (T+1 to T+45).
+            </p>
+          </div>
+          <div class="mt-4 text-[11px] font-mono text-claude-coral">11 Direct Targets & OTAs ➔</div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-claude-surface border border-claude-blue/40 flex flex-col justify-between hover:border-claude-blue transition">
+          <div>
+            <div class="text-xs font-mono text-claude-blue mb-2">PILLAR 02 • ECONOMETRICS</div>
+            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">Laspeyres Price Engine</h3>
+            <p class="text-xs text-claude-gray leading-relaxed">
+              Separates pure Base Fare from taxes, trims statistical outliers (IQR), and calculates official MoSPI Base 2024=100 index weighted by DGCA passenger loads.
+            </p>
+          </div>
+          <div class="mt-4 text-[11px] font-mono text-claude-blue">IMF-Grade Econometric Formula ➔</div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-claude-surface border border-claude-green/40 flex flex-col justify-between hover:border-claude-green transition">
+          <div>
+            <div class="text-xs font-mono text-claude-green mb-2">PILLAR 03 • DECISION INTELLIGENCE</div>
+            <h3 class="font-heading font-semibold text-claude-light text-base mb-2">MoSPI & RBI Command Center</h3>
+            <p class="text-xs text-claude-gray leading-relaxed">
+              High-polish dashboard with real-time inflation dials, interactive domestic corridor maps, anomaly alerts, and automated REST APIs for the RBI MPC.
+            </p>
+          </div>
+          <div class="mt-4 text-[11px] font-mono text-claude-green">Automated Macroeconomic Feeds ➔</div>
+        </div>
+      </div>
+
+      <!-- Action Callout -->
+      <div class="p-4 rounded-xl bg-gradient-to-r from-claude-coral/10 via-claude-surface to-claude-surface border border-claude-coral/30 flex items-center justify-between">
+        <div class="text-xs font-mono text-claude-light">
+          <span class="text-claude-coral font-bold mr-2">NEXT STEP:</span>
+          <span>Dive into System Blueprint & Technical Architecture</span>
+        </div>
+        <a href="architecture.html" class="text-xs font-mono px-3 py-1.5 rounded bg-claude-coral text-claude-dark font-bold hover:bg-claude-coralHover transition flex items-center gap-1">
+          Explore Architecture Blueprint ➔
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM MINIMAL FOOTER & SPEAKER DRAWER -->
+  <footer class="w-full px-8 py-4 border-t border-claude-border/50 bg-claude-dark/90 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      
+      <!-- Key Hints -->
+      <div class="flex items-center gap-3 text-xs font-mono text-claude-gray">
+        <span>← / → Navigate</span>
+        <span>•</span>
+        <span>Space Next</span>
+        <span>•</span>
+        <span>F Fullscreen</span>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex items-center gap-2">
+        <button onclick="changeSlide(-1)" class="px-3 py-1.5 rounded text-xs font-mono border border-claude-border text-claude-gray hover:text-claude-light hover:border-claude-coral transition">
+          Prev
+        </button>
+        <button onclick="changeSlide(1)" class="px-3.5 py-1.5 rounded text-xs font-mono bg-claude-coral text-claude-dark font-semibold hover:bg-claude-coralHover transition shadow-sm">
+          Next ➔
+        </button>
+      </div>
+    </div>
+
+    <!-- PRESENTER MODE DRAWER (Toggled by 'P' key) -->
+    <div id="presenterDrawer" class="hidden mt-4 pt-4 border-t border-claude-border max-w-4xl mx-auto">
+      <div class="bg-claude-surface rounded-xl p-4 border border-claude-coral/30 flex items-start justify-between gap-6">
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="w-2 h-2 rounded-full bg-claude-coral"></span>
+            <span class="font-heading font-semibold text-xs uppercase text-claude-coral tracking-wider">Speaker Talking Points:</span>
+          </div>
+          <p id="speakerNoteText" class="text-xs text-claude-light leading-relaxed font-mono">
+            “Judges, today we present What our Problem Statement is...”
+          </p>
+        </div>
+        <div class="text-right font-mono border-l border-claude-border pl-4">
+          <div class="text-[10px] text-claude-gray uppercase">Timer</div>
+          <div id="presenterTimer" class="text-lg font-bold text-claude-coral">00:00</div>
+          <button onclick="resetTimer()" class="text-[10px] text-claude-gray hover:text-claude-light underline block mt-1">Reset</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: MINIMALIST INTERACTIVE NAVIGATION (6 SLIDES) -->
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 6;
+    let presenterMode = false;
+    let timerSeconds = 0;
+    let timerInterval = null;
+
+    const speakerNotes = {
+      1: "SLIDE 1 (WHAT OUR PROBLEM STATEMENT IS): 'Judges, today we clarify What our Problem Statement is: how India tracks domestic airfare inflation under MoSPI, and why the current methodology creates a multi-billion rupee blind spot for the Reserve Bank of India.'",
+      2: "SLIDE 2 (THE HOOK): 'Did you know the government collects flight inflation by walking into an office once a month with paper? Over 92% of tickets are online.'",
+      3: "SLIDE 3 (THE CONTRAST): 'Drag this slider. Notice how a ₹4,500 counter fare jumps to ₹16,800 on a festival weekend. The government data completely misses this.'",
+      4: "SLIDE 4 (THE CONSEQUENCE): 'Why does this matter? The RBI sets India\'s interest rates based on CPI. When airfare data is blind, national interest rate policy is distorted.'",
+      5: "SLIDE 5 (THE MANDATE): 'MoSPI officially mandated shifting to digital web scraping under CPI Base 2024=100. They posted SIH26056 because they need this software.'",
+      6: "SLIDE 6 (LET\'S MOVE TO SOLN.): 'Now that the problem and official mandate are crystal clear: Let\'s Move to Soln. We present the 3 engineering pillars of Operation APIx: Automated Ingestion, Laspeyres Econometrics, and the Sovereign MoSPI & RBI Command Center.'"
+    };
+
+    function updateSlide() {
+      // Hide all slides
+      document.querySelectorAll('.slide-pane').forEach(el => el.classList.add('hidden'));
+
+      // Show active slide
+      const activeSlide = document.getElementById(`slide-${currentSlide}`);
+      if (activeSlide) activeSlide.classList.remove('hidden');
+
+      // Update counter and progress bar
+      document.getElementById('slideCounter').innerText = currentSlide.toString().padStart(2, '0');
+      const progressPercent = (currentSlide / totalSlides) * 100;
+      document.getElementById('progressBar').style.width = `${progressPercent}%`;
+
+      // Update speaker notes
+      document.getElementById('speakerNoteText').innerText = speakerNotes[currentSlide] || "Deliver slide with focus and clarity.";
+    }
+
+    function changeSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide < 1) currentSlide = 1;
+      if (currentSlide > totalSlides) currentSlide = totalSlides;
+      updateSlide();
+    }
+
+    function togglePresenterMode() {
+      presenterMode = !presenterMode;
+      const drawer = document.getElementById('presenterDrawer');
+      if (presenterMode) {
+        drawer.classList.remove('hidden');
+        startTimer();
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    function startTimer() {
+      if (!timerInterval) {
+        timerInterval = setInterval(() => {
+          timerSeconds++;
+          const mins = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+          const secs = (timerSeconds % 60).toString().padStart(2, '0');
+          document.getElementById('presenterTimer').innerText = `${mins}:${secs}`;
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      timerSeconds = 0;
+      document.getElementById('presenterTimer').innerText = "00:00";
+    }
+
+    // Keyboard controls
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft') {
+        changeSlide(-1);
+      } else if (e.key.toLowerCase() === 'p') {
+        togglePresenterMode();
+      } else if (e.key.toLowerCase() === 'f') {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      } else if (!isNaN(e.key) && parseInt(e.key) >= 1 && parseInt(e.key) <= totalSlides) {
+        currentSlide = parseInt(e.key);
+        updateSlide();
+      }
+    });
+
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        document.body.classList.remove('bg-claude-dark', 'text-claude-light');
+        document.body.classList.add('bg-claude-light', 'text-claude-dark');
+      } else {
+        html.classList.add('dark');
+        document.body.classList.add('bg-claude-dark', 'text-claude-light');
+        document.body.classList.remove('bg-claude-light', 'text-claude-dark');
+      }
+    }
+
+    // Interactive Slider for Slide 3
+    function updateSliderDemo(val) {
+      const priceDisplay = document.getElementById('dynamicPriceDisplay');
+      const leadLabel = document.getElementById('leadTimeLabel');
+      const surgeBadge = document.getElementById('surgeBadge');
+      
+      const v = parseInt(val);
+      let price = 4500;
+      let label = "";
+      let surge = 0;
+
+      if (v <= 2) {
+        price = 16800;
+        label = "T+1 Day (Last Minute Surge)";
+        surge = 273;
+      } else if (v <= 7) {
+        price = 12400;
+        label = "T+7 Days (High Demand)";
+        surge = 175;
+      } else if (v <= 15) {
+        price = 8500;
+        label = "T+15 Days (Mid-Range)";
+        surge = 88;
+      } else if (v <= 30) {
+        price = 5600;
+        label = "T+30 Days (Standard)";
+        surge = 24;
+      } else {
+        price = 4500;
+        label = "T+45 Days (Early Baseline)";
+        surge = 0;
+      }
+
+      priceDisplay.innerText = `₹${price.toLocaleString()}`;
+      leadLabel.innerText = label;
+      surgeBadge.innerText = `+${surge}% Dynamic Surge (${label})`;
+    }
+
+    // Initialize
+    updateSlide();
+  </script>
+</body>
+</html>
